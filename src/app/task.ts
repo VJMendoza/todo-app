@@ -1,4 +1,4 @@
-interface Task {
+interface ITask {
   id: number;
   name: string;
   description: string;
@@ -6,7 +6,7 @@ interface Task {
   isCompleted?: boolean;
 }
 
-export class TaskImplem implements Task {
+export class Task implements ITask {
   private _id: number;
   private _name: string;
   private _description: string;
@@ -14,13 +14,13 @@ export class TaskImplem implements Task {
   IsCompleted? : Boolean;
 
   constructor(
-    id: number,
-    name: string,
-    description: string,
+    Task?: ITask
   ){
-    this._id = id;
-    this._name = name;
-    this._description = description;
+    this._id = Task?.id ?? 0;
+    this._name = Task?.name ?? "";
+    this._description = Task?.description ?? "";
+    this.dueDate = Task?.dueDate;
+    this.IsCompleted = Task?.isCompleted;
   }
 
   get id(): number {
@@ -65,6 +65,4 @@ export class TaskImplem implements Task {
       this._dueDate = value;
     }
   }
-
-
 }
