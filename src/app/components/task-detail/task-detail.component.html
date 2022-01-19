@@ -1,6 +1,6 @@
 <div *ngIf="task">
-    <h2>{{ task.name | uppercase }} Details</h2>
+    <h2>{{ task ? task.name : "No name" }} Details</h2>
     <div>
-        <span>{{ task.description }}</span>
+        <span>{{ task ? task.description : "No desc" }}</span>
     </div>
 </div>
