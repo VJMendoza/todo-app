@@ -1,4 +1,4 @@
-interface ITask {
+export interface Task {
   id: number;
   name: string;
   description: string;
@@ -6,7 +6,7 @@ interface ITask {
   isCompleted?: boolean;
 }
 
-export class Task implements ITask {
+export class TaskClass implements Task {
   private _id: number;
   private _name: string;
   private _description: string;
@@ -14,7 +14,7 @@ export class Task implements ITask {
   IsCompleted? : Boolean;
 
   constructor(
-    Task?: ITask
+    Task?: Task
   ){
     this._id = Task?.id ?? 0;
     this._name = Task?.name ?? "";
