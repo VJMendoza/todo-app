@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { Task } from '../task';
-import { TASKS } from '../mock-tasks';
+import { Task } from '../../task';
+import { TASKS } from '../../mock-tasks';
 
 @Component({
   selector: 'app-task-detail',

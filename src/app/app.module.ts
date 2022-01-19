@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { TaskDetailComponent } from './task-detail/task-detail.component';
-import { TasksComponent } from './tasks/tasks.component';
+import { TaskDetailComponent } from './components/task-detail/task-detail.component';
+import { TasksComponent } from './components/tasks/tasks.component';
 
 @NgModule({
   declarations: [
