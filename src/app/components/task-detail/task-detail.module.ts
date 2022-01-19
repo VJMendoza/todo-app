@@ -4,7 +4,9 @@ import { CommonModule } from '@angular/common';
 import { TaskDetailComponent } from './task-detail.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    TaskDetailComponent,
+  ],
   imports: [
     CommonModule
   ],
