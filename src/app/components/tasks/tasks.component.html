@@ -1,12 +1,41 @@
-<h2>All Tasks</h2>
+<div class="task-menu">
 
-<mat-card *ngFor="let task of Tasks" class="task">
-  <mat-card-title>{{ task.name }}</mat-card-title>
-  <mat-card-content>
-    {{ task.description }}
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>Edit</button>
-  </mat-card-actions>
-</mat-card>
+  <div class="task-list">
+    <h2>Active Tasks</h2>
+    <mat-card *ngFor="let task of Tasks" class="task">
+      <mat-card-title>{{ task.name }}</mat-card-title>
+      <mat-card-content>
+        {{ task.description }}
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>Edit</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
 
+  <div class="task-list">
+    <h2>Due Tasks</h2>
+    <mat-card *ngFor="let task of Tasks" class="task">
+      <mat-card-title>{{ task.name }}</mat-card-title>
+      <mat-card-content>
+        {{ task.description }}
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>Edit</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  
+  <div class="task-list">
+    <h2>Completed Tasks</h2>
+    <mat-card *ngFor="let task of Tasks" class="task">
+      <mat-card-title>{{ task.name }}</mat-card-title>
+      <mat-card-content>
+        {{ task.description }}
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>Edit</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
