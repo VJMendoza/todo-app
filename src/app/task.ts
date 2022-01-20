@@ -6,7 +6,7 @@ export interface Task {
   isCompleted?: boolean;
 }
 
-export class TaskClass implements Task {
+class TaskClass implements Task {
   private _id: number;
   private _name: string;
   private _description: string;
