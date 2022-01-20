@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
-import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { TasksComponent } from './tasks.component';
 import { TaskDetailModule } from '../task-detail/task-detail.module';
@@ -16,8 +16,8 @@ import { TaskDetailModule } from '../task-detail/task-detail.module';
   imports: [
     CommonModule,
     BrowserAnimationsModule,
-    MatListModule,
     MatCardModule,
+    MatDialogModule,
     TaskDetailModule
   ],
   exports: [

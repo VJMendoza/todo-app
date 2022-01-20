@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { TaskDetailComponent } from './task-detail.component';
 
@@ -8,7 +11,10 @@ import { TaskDetailComponent } from './task-detail.component';
     TaskDetailComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    BrowserAnimationsModule,
+    MatDialogModule
+
   ],
   exports: [
     TaskDetailComponent,

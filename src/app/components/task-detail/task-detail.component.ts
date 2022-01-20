@@ -1,7 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { Task } from '../../task';
-import { TASKS } from '../../mock-tasks';
 
 @Component({
   selector: 'app-task-detail',
@@ -9,10 +9,10 @@ import { TASKS } from '../../mock-tasks';
   styleUrls: ['./task-detail.component.sass']
 })
 export class TaskDetailComponent implements OnInit {
-
-  @Input() task?: Task;
   
-  constructor() { }
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: Task
+  ) { }
 
   ngOnInit(): void {
   }
