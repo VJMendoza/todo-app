@@ -10,7 +10,10 @@ import { TASKS } from '../../mock-tasks';
 })
 export class TasksComponent implements OnInit {
 
-  Tasks: Task[] = TASKS;
+  tasks: Task[] = TASKS;
+  activeTasks: Task[] = TASKS;
+  dueTasks: Task[] = TASKS;
+  completeTasks: Task[] = TASKS;
   
   constructor() { }
 
