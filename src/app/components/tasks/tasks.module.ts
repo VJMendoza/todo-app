@@ -9,6 +9,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { TasksComponent } from './tasks.component';
 import { TaskDetailModule } from '../task-detail/task-detail.module';
 
+import { PipesModule } from 'src/app/pipes/pipes.module';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { TaskDetailModule } from '../task-detail/task-detail.module';
     MatCardModule,
     MatDialogModule,
     MatButtonModule,
-    TaskDetailModule
+    TaskDetailModule,
+    PipesModule,
   ],
   exports: [
     TasksComponent

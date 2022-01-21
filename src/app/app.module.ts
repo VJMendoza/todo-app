@@ -7,14 +7,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { AppComponent } from './app.component';
 import { TasksModule } from './components/tasks/tasks.module';
-import { DueStatusPipe } from './pipes/due-status.pipe';
 
 export const TASKS_URL: InjectionToken<string> = new InjectionToken<string>("Tasks API URL");
 
 @NgModule({
   declarations: [
     AppComponent,
-    DueStatusPipe,
   ],
   imports: [
     BrowserModule,

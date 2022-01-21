@@ -5,10 +5,15 @@ import { Task } from '../task';
   name: 'dueStatus'
 })
 export class DueStatusPipe implements PipeTransform {
+  private today: Date = new Date();
 
   transform(tasks: Task[], isDue?: boolean): Task[] {
-    if (tasks){
-      return tasks.filter(task => task.dueDate);
+    if ( tasks ) {
+      this.today.setHours(0, 0, 0, 0);
+
+      return tasks.filter(task => {
+        !task.dueDate
+      });
     }
 
     return tasks ?? []
