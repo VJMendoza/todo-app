@@ -1,6 +1,6 @@
 <div class="task-menu">
 
-  <div class="task-list">
+  <div>
     <h2>Active Tasks</h2>
     <mat-card *ngFor="let task of tasks" class="task">
       <mat-card-title>{{ task.name }}</mat-card-title>
@@ -8,12 +8,12 @@
         {{ task.description }}
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button (click)="viewTask(task.id)">Edit</button>
+        <button mat-flat-button color="primary" (click)="viewTask(task.id)">Edit</button>
       </mat-card-actions>
     </mat-card>
   </div>
 
-  <div class="task-list">
+  <div >
     <h2>Due Tasks</h2>
     <mat-card *ngFor="let task of tasks" class="task">
       <mat-card-title>{{ task.name }}</mat-card-title>
@@ -26,7 +26,7 @@
     </mat-card>
   </div>
   
-  <div class="task-list">
+  <div>
     <h2>Completed Tasks</h2>
     <mat-card *ngFor="let task of tasks" class="task">
       <mat-card-title>{{ task.name }}</mat-card-title>

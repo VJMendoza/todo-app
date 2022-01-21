@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 
 import { TaskDetailComponent } from './task-detail.component';
 
@@ -13,8 +14,8 @@ import { TaskDetailComponent } from './task-detail.component';
   imports: [
     CommonModule,
     BrowserAnimationsModule,
-    MatDialogModule
-
+    MatDialogModule,
+    MatButtonModule
   ],
   exports: [
     TaskDetailComponent,

@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 
 import { TasksComponent } from './tasks.component';
 import { TaskDetailModule } from '../task-detail/task-detail.module';
@@ -18,6 +19,7 @@ import { TaskDetailModule } from '../task-detail/task-detail.module';
     BrowserAnimationsModule,
     MatCardModule,
     MatDialogModule,
+    MatButtonModule,
     TaskDetailModule
   ],
   exports: [

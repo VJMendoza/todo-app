@@ -44,6 +44,7 @@ export class TasksComponent implements OnInit {
 
     this.dialog.afterAllClosed.subscribe(result => {
       console.log(`Task ${taskId} was opened`);
+      this.getTasks();
     })
   }
 
