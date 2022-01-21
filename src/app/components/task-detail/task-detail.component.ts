@@ -1,5 +1,6 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { TaskService } from 'src/app/services/task.service';
 
 import { Task } from '../../task';
 
@@ -9,12 +10,20 @@ import { Task } from '../../task';
   styleUrls: ['./task-detail.component.sass']
 })
 export class TaskDetailComponent implements OnInit {
+  task?: Task
   
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: Task
+    @Inject(MAT_DIALOG_DATA) public data: number,
+    protected tasksService: TaskService
   ) { }
 
   ngOnInit(): void {
+    if (this.data){
+      this.tasksService.getTask(this.data)
+        .subscribe((task) => {
+          this.task = task
+        });
+    }
   }
 
 }

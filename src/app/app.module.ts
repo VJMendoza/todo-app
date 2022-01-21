@@ -1,12 +1,14 @@
-import { NgModule } from '@angular/core';
+import { InjectionToken, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { AppComponent } from './app.component';
 import { TasksModule } from './components/tasks/tasks.module';
-import { TaskDetailModule } from './components/task-detail/task-detail.module';
+
+export const TASKS_URL: InjectionToken<string> = new InjectionToken<string>("Tasks API URL");
 
 @NgModule({
   declarations: [
@@ -14,12 +16,17 @@ import { TaskDetailModule } from './components/task-detail/task-detail.module';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     TasksModule,
-    TaskDetailModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: TASKS_URL,
+      useValue: "http://localhost:3000/todos"
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

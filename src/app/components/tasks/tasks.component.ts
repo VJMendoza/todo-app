@@ -5,6 +5,7 @@ import { Task } from '../../task';
 import { TASKS } from '../../mock-tasks';
 
 import { TaskDetailComponent } from '../task-detail/task-detail.component';
+import { TaskService } from 'src/app/services/task.service';
 
 @Component({
   selector: 'app-tasks',
@@ -13,27 +14,36 @@ import { TaskDetailComponent } from '../task-detail/task-detail.component';
 })
 export class TasksComponent implements OnInit {
 
-  tasks: Task[] = TASKS;
+  tasks: Task[] = [];
   activeTasks: Task[] = TASKS;
   dueTasks: Task[] = TASKS;
   completeTasks: Task[] = TASKS;
   
   constructor(
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    protected tasksService: TaskService
   ) { }
 
   ngOnInit(): void {
+    this.getTasks();
   }
 
-  viewTask(task: Task): void {
+  getTasks(): void {
+    this.tasksService.getTasks()
+      .subscribe((tasks) => {
+        this.tasks = tasks
+      });
+  }
+
+  viewTask(taskId: number): void {
     this.dialog.open(TaskDetailComponent, {
       height: '400px',
       width: '600px',
-      data: task
+      data: taskId
     });
 
     this.dialog.afterAllClosed.subscribe(result => {
-      console.log(`${task.name} was opened`);
+      console.log(`Task ${taskId} was opened`);
     })
   }
 
