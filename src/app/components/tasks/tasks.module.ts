@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 import { TasksComponent } from './tasks.component';
 import { TaskDetailModule } from '../task-detail/task-detail.module';
@@ -23,6 +24,7 @@ import { DirectivesModule } from 'src/app/directives/directives.module';
     MatCardModule,
     MatDialogModule,
     MatButtonModule,
+    MatIconModule,
     TaskDetailModule,
     PipesModule,
     DirectivesModule,
