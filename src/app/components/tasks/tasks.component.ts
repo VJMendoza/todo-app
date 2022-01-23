@@ -36,13 +36,13 @@ export class TasksComponent implements OnInit {
   }
 
   viewTask(taskId: number): void {
-    this.dialog.open(TaskDetailComponent, {
+    const dialogRef = this.dialog.open(TaskDetailComponent, {
       height: '400px',
       width: '600px',
       data: taskId
     });
 
-    this.dialog.afterAllClosed.subscribe(result => {
+    dialogRef.afterClosed().subscribe(result => {
       console.log(`Task ${taskId} was opened`);
       this.getTasks();
     })
