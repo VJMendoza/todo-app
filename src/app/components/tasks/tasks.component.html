@@ -2,7 +2,7 @@
 
   <div>
     <h2 class="mat-title">Active Tasks</h2>
-    <mat-card *ngFor="let task of tasks" class="task" appElevate (click)="viewTask(task.id)">
+    <mat-card *ngFor="let task of tasks | completedStatus: false" class="task" appElevate (click)="viewTask(task.id)">
       <mat-card-title-group>
         <mat-card-title>{{ task.name }}</mat-card-title>
         <mat-card-subtitle>Due: {{ task.dueDate | date: 'mediumDate' }} </mat-card-subtitle>
@@ -15,7 +15,7 @@
 
   <div>
     <h2 class="mat-title">Due Tasks</h2>
-    <mat-card *ngFor="let task of tasks" class="task" appElevate (click)="viewTask(task.id)">
+    <mat-card *ngFor="let task of tasks | dueStatus" class="task" appElevate (click)="viewTask(task.id)">
       <mat-card-title-group>
         <mat-card-title>{{ task.name }}</mat-card-title>
         <mat-card-subtitle>Due: {{ task.dueDate | date: 'mediumDate' }} </mat-card-subtitle>
@@ -28,7 +28,7 @@
   
   <div>
     <h2 class="mat-title">Completed Tasks</h2>
-    <mat-card *ngFor="let task of tasks" class="task" appElevate (click)="viewTask(task.id)">
+    <mat-card *ngFor="let task of tasks | completedStatus: true" class="task" appElevate (click)="viewTask(task.id)">
       <mat-card-title-group>
         <mat-card-title>{{ task.name }}</mat-card-title>
         <mat-card-subtitle>Due: {{ task.dueDate | date: 'mediumDate' }} </mat-card-subtitle>
