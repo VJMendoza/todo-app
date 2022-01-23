@@ -2,7 +2,7 @@
 
   <div>
     <h2 class="mat-title">Active Tasks</h2>
-    <mat-card *ngFor="let task of tasks" class="task">
+    <mat-card *ngFor="let task of tasks" class="task" appElevate (click)="viewTask(task.id)">
       <mat-card-title-group>
         <mat-card-title>{{ task.name }}</mat-card-title>
         <mat-card-subtitle>Due: {{ task.dueDate | date: 'mediumDate' }} </mat-card-subtitle>
@@ -10,15 +10,12 @@
       <mat-card-content>
         {{ task.description }}
       </mat-card-content>
-      <mat-card-actions align="end">
-        <button mat-flat-button color="primary" (click)="viewTask(task.id)">Edit</button>
-      </mat-card-actions>
     </mat-card>
   </div>
 
   <div>
     <h2 class="mat-title">Due Tasks</h2>
-    <mat-card *ngFor="let task of tasks | dueStatus" class="task">
+    <mat-card *ngFor="let task of tasks" class="task" appElevate (click)="viewTask(task.id)">
       <mat-card-title-group>
         <mat-card-title>{{ task.name }}</mat-card-title>
         <mat-card-subtitle>Due: {{ task.dueDate | date: 'mediumDate' }} </mat-card-subtitle>
@@ -26,15 +23,12 @@
       <mat-card-content>
         {{ task.description }}
       </mat-card-content>
-      <mat-card-actions align="end">
-        <button mat-flat-button color="primary" (click)="viewTask(task.id)">Edit</button>
-      </mat-card-actions>
     </mat-card>
   </div>
   
   <div>
     <h2 class="mat-title">Completed Tasks</h2>
-    <mat-card *ngFor="let task of tasks" class="task">
+    <mat-card *ngFor="let task of tasks" class="task" appElevate (click)="viewTask(task.id)">
       <mat-card-title-group>
         <mat-card-title>{{ task.name }}</mat-card-title>
         <mat-card-subtitle>Due: {{ task.dueDate | date: 'mediumDate' }} </mat-card-subtitle>
@@ -42,8 +36,5 @@
       <mat-card-content>
         {{ task.description }}
       </mat-card-content>
-      <mat-card-actions align="end">
-        <button mat-flat-button color="primary" (click)="viewTask(task.id)">Edit</button>
-      </mat-card-actions>
     </mat-card>
 </div>

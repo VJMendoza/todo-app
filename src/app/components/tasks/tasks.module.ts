@@ -11,6 +11,7 @@ import { TaskDetailModule } from '../task-detail/task-detail.module';
 
 import { PipesModule } from 'src/app/pipes/pipes.module';
 
+import { DirectivesModule } from 'src/app/directives/directives.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
     MatButtonModule,
     TaskDetailModule,
     PipesModule,
+    DirectivesModule,
   ],
   exports: [
     TasksComponent

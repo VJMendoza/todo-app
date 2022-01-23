@@ -12,7 +12,7 @@ export class DueStatusPipe implements PipeTransform {
       this.today.setHours(0, 0, 0, 0);
 
       return tasks.filter(task => {
-        !task.dueDate
+        task.dueDate
       });
     }
 

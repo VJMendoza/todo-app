@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 import { AppComponent } from './app.component';
 import { TasksModule } from './components/tasks/tasks.module';
@@ -19,6 +20,7 @@ export const TASKS_URL: InjectionToken<string> = new InjectionToken<string>("Tas
     HttpClientModule,
     BrowserAnimationsModule,
     MatToolbarModule,
+    MatSidenavModule,
     TasksModule,
   ],
   providers: [
