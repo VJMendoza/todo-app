@@ -15,12 +15,8 @@ import { TaskService } from 'src/app/services/task.service';
 export class TasksComponent implements OnInit {
 
   tasks: Task[] = [];
-  activeTasks: Task[] = TASKS;
-  dueTasks: Task[] = TASKS;
-  completeTasks: Task[] = TASKS;
   
   constructor(
-    public dialog: MatDialog,
     protected tasksService: TaskService
   ) { }
 
@@ -33,19 +29,6 @@ export class TasksComponent implements OnInit {
       .subscribe((tasks) => {
         this.tasks = tasks
       });
-  }
-
-  viewTask(taskId: number): void {
-    const dialogRef = this.dialog.open(TaskDetailComponent, {
-      height: '400px',
-      width: '600px',
-      data: taskId
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Task ${taskId} was opened`);
-      this.getTasks();
-    })
   }
 
 }

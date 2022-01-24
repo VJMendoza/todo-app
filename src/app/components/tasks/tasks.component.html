@@ -1,43 +1,10 @@
 <div class="task-menu">
 
-  <div>
-    <span>
-      <h2 class="mat-title">Active Tasks</h2>
-      <mat-icon>addition</mat-icon>
-    </span>
-    <mat-card *ngFor="let task of tasks | completedStatus: false" class="task" appElevate (click)="viewTask(task.id)">
-      <mat-card-title-group>
-        <mat-card-title>{{ task.name }}</mat-card-title>
-        <mat-card-subtitle>Due: {{ task.dueDate | date: 'mediumDate' }} </mat-card-subtitle>
-      </mat-card-title-group>
-      <mat-card-content>
-        {{ task.description }}
-      </mat-card-content>
-    </mat-card>
-  </div>
+  <app-task-list [tasksToDisplay]="tasks | completedStatus: false" [titleToDisplay]="'Active Tasks'"></app-task-list>
 
-  <div>
-    <h2 class="mat-title">Due Tasks</h2>
-    <mat-card *ngFor="let task of tasks | dueStatus" class="task" appElevate (click)="viewTask(task.id)">
-      <mat-card-title-group>
-        <mat-card-title>{{ task.name }}</mat-card-title>
-        <mat-card-subtitle>Due: {{ task.dueDate | date: 'mediumDate' }} </mat-card-subtitle>
-      </mat-card-title-group>
-      <mat-card-content>
-        {{ task.description }}
-      </mat-card-content>
-    </mat-card>
-  </div>
-  
-  <div>
-    <h2 class="mat-title">Completed Tasks</h2>
-    <mat-card *ngFor="let task of tasks | completedStatus: true" class="task" appElevate (click)="viewTask(task.id)">
-      <mat-card-title-group>
-        <mat-card-title>{{ task.name }}</mat-card-title>
-        <mat-card-subtitle>Due: {{ task.dueDate | date: 'mediumDate' }} </mat-card-subtitle>
-      </mat-card-title-group>
-      <mat-card-content>
-        {{ task.description }}
-      </mat-card-content>
-    </mat-card>
+  <app-task-list [tasksToDisplay]="tasks | dueStatus" [titleToDisplay]="'Due Tasks'"></app-task-list>
+
+  <app-task-list [tasksToDisplay]="tasks | completedStatus: true" [titleToDisplay]="'Completed Tasks'"></app-task-list>
+
 </div>
+

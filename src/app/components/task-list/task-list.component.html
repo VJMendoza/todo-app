@@ -1,0 +1,12 @@
+<div>
+  <h2 class="mat-title"> {{ titleToDisplay }} </h2>
+  <mat-card *ngFor="let task of tasksToDisplay" class="task" appElevate (click)="viewTask(task.id)">
+    <mat-card-title-group>
+      <mat-card-title>{{ task.name }}</mat-card-title>
+      <mat-card-subtitle>Due: {{ task.dueDate | date: 'mediumDate' }} </mat-card-subtitle>
+    </mat-card-title-group>
+    <mat-card-content>
+      {{ task.description }}
+    </mat-card-content>
+  </mat-card>
+</div>
