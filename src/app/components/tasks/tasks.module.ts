@@ -13,6 +13,7 @@ import { TaskDetailModule } from '../task-detail/task-detail.module';
 import { TaskListModule } from '../task-list/task-list.module';
 import { PipesModule } from 'src/app/pipes/pipes.module';
 import { DirectivesModule } from 'src/app/directives/directives.module';
+import { TaskRoutingModule } from './task-routing.module';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { DirectivesModule } from 'src/app/directives/directives.module';
     TaskListModule,
     PipesModule,
     DirectivesModule,
+    TaskRoutingModule,
   ],
   exports: [
     TasksComponent

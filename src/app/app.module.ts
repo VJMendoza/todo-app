@@ -8,6 +8,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 
 import { AppComponent } from './app.component';
 import { TasksModule } from './components/tasks/tasks.module';
+import { AppRoutingModule } from './app-routing.module';
 
 export const TASKS_URL: InjectionToken<string> = new InjectionToken<string>("Tasks API URL");
 
@@ -22,6 +23,7 @@ export const TASKS_URL: InjectionToken<string> = new InjectionToken<string>("Tas
     MatToolbarModule,
     MatSidenavModule,
     TasksModule,
+    AppRoutingModule,
   ],
   providers: [
     {
