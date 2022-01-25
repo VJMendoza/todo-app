@@ -12,8 +12,6 @@ import { TaskService } from 'src/app/services/task.service';
 export class AddTaskComponent implements OnInit {
   task: Task = this.createTask();
 
-  name = new FormControl('');
-  
   taskForm = new FormGroup({
     name: new FormControl(''),
     description: new FormControl(''),
@@ -26,6 +24,12 @@ export class AddTaskComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+  }
+
+  async onSubmit(): Promise<void> {
+    if (this.taskForm.valid){
+      console.log(this.taskForm.value);
+    }
   }
 
   private createTask(): Task {
