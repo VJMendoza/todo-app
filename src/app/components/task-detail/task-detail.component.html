@@ -1,10 +1,18 @@
-<div *ngIf="task">
-    <h2 mat-dialog-title>{{ task.name | uppercase }} Details</h2>
-    <div mat-dialog-content>
-        {{ task.description }}
-    </div>
-    <div mat-dialog-actions align="end">
-      <button mat-button mat-dialog-close>Close</button>
-      <button mat-button mat-dialog-close>Save</button>
-    </div>
+<div *ngIf="task" class="fixActionRow">
+  <div mat-dialog-title>
+    <h2 class="mat-title">
+      {{ task.name | uppercase }}
+    </h2>
+    <h4 class="mat-subheading-1">{{ task.dueDate | date: 'mediumDate'}} </h4>
+  </div>
+
+  <div mat-dialog-content class="mat-body">
+      {{ task.description }}
+  </div>
+
+  <div class="spacer"></div>
+  <div mat-dialog-actions align="end">
+    <button mat-button>Edit</button>
+    <button mat-button mat-dialog-close cdkFocusInitial>Close</button>
+  </div>
 </div>

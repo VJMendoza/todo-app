@@ -28,7 +28,8 @@ export class TaskListComponent implements OnInit {
 
   viewTask(taskId: number): void {
     const dialogRef = this.dialog.open(TaskDetailComponent, {
-      height: '400px',
+      minHeight: '500px',
+      height: '60%',
       width: '600px',
       data: taskId
     });
