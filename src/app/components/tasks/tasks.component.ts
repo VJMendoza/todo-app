@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
-import { Task } from '../../task';
+import { Task } from '../../models/task';
 import { TASKS } from '../../mock-tasks';
 
 import { TaskDetailComponent } from '../task-detail/task-detail.component';

@@ -2,7 +2,7 @@ import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { TaskService } from 'src/app/services/task.service';
 
-import { Task } from '../../task';
+import { Task } from '../../models/task';
 
 @Component({
   selector: 'app-task-detail',

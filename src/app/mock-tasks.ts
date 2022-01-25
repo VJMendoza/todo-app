@@ -1,4 +1,4 @@
-import { Task } from "./task";
+import { Task } from "./models/task";
 
 export const TASKS: Task[] = [
     {id: 1, name: "Test", description: "This is a test"},

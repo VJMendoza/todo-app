@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { MatDialog } from '@angular/material/dialog';
 
-import { Task } from '../../task';
+import { Task } from '../../models/task';
 
 import { TaskDetailComponent } from '../task-detail/task-detail.component';
 import { TaskService } from 'src/app/services/task.service';
