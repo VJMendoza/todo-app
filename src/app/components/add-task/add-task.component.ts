@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+
 import { Task } from 'src/app/models/task';
+import { TaskService } from 'src/app/services/task.service';
 
 @Component({
   selector: 'app-add-task',
@@ -9,7 +12,18 @@ import { Task } from 'src/app/models/task';
 export class AddTaskComponent implements OnInit {
   task: Task = this.createTask();
 
-  constructor() { }
+  name = new FormControl('');
+  
+  taskForm = new FormGroup({
+    name: new FormControl(''),
+    description: new FormControl(''),
+    dueDate: new FormControl(''),
+    isCompleted: new FormControl('')
+  })
+
+  constructor(
+    protected taskService: TaskService
+  ) { }
 
   ngOnInit(): void {
   }

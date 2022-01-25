@@ -1,5 +1,5 @@
 <div>
-  <button mat-flat-button color="accent">Add Task</button>
+  <a mat-flat-button [routerLink]="['/tasks/add']" color="accent">Add Task</a>
   <div  class="task-menu">
     <app-task-list [tasksToDisplay]="tasks | completedStatus: false" [titleToDisplay]="'Active Tasks'"></app-task-list>
   

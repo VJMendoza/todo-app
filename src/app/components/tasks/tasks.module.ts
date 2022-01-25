@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -21,6 +23,8 @@ import { TaskRoutingModule } from './task-routing.module';
   ],
   imports: [
     CommonModule,
+    RouterModule,
+    ReactiveFormsModule,
     MatCardModule,
     MatDialogModule,
     MatButtonModule,

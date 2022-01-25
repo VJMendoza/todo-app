@@ -1,1 +1,14 @@
-<p>add-task works!</p>
+<form [formGroup]="taskForm">
+
+  <label for="task-name">Name</label>
+  <input type="text" id="task-name" formControlName="name">
+
+  <label for="task-description">Description</label>
+  <input type="text" id="task-description" formControlName="description">
+
+  <label for="task-dueDate">Due Date</label>
+  <input type="description" id="task-dueDate" formControlName="dueDate">
+
+  <label for="task-isCompleted">Complete?</label>
+  <input type="text" id="task-isCompleted" formControlName="isCompleted">
+</form>
