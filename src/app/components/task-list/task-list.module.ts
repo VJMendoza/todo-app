@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { TaskListComponent } from './task-list.component';
 
@@ -18,7 +17,6 @@ import { DirectivesModule } from 'src/app/directives/directives.module';
   ],
   imports: [
     CommonModule,
-    BrowserAnimationsModule,
     MatCardModule,
     MatDialogModule,
     MatButtonModule,

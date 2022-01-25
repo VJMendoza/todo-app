@@ -5,6 +5,11 @@ const routes: Routes = [
   { 
     path: 'tasks', 
     loadChildren: () => import('./components/tasks/tasks.module').then(m => m.TasksModule),
+  },
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: '/tasks/list',
   }
 ]
 
