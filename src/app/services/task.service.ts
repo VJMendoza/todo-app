@@ -1,7 +1,8 @@
 import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { TASKS_URL } from '../app.module';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 import { Task } from '../task';
 
 @Injectable({
@@ -15,14 +16,34 @@ export class TaskService {
   ) { }
 
   getTasks(): Observable<Task[]> {
-    return this.httpClient.get<Task[]>(
-      `${this.url}`
-    );
+    return this.httpClient.get<Task[]>(this.url)
+      .pipe(
+        tap((tasks: Task[]) => console.log(`Tasks retrieved: ${tasks.length}`)),
+        catchError(this.handleError<Task[]>([]))
+      );
   }
 
   getTask(id: number): Observable<Task> {
     return this.httpClient.get<Task>(
       `${this.url}/${id}`
+    ).pipe(
+      tap((task: Task) => console.log(`Task ${task.id} retrieved`)),
+      catchError(this.handleError<Task>())
     );
   }
+
+  addTask(task: Task): Observable<Task> {
+    return this.httpClient.post<Task>(this.url, task)
+      .pipe(
+        tap((newTask: Task) => console.log(`New Task with id: ${newTask.id} was made`)),
+        catchError(this.handleError<Task>())
+      );
+  }
+
+  private handleError<T>(result?: T){
+    return (error: any): Observable<T> => {
+      console.log(error);
+      return of(result as T);
+    }
+  } 
 }
