@@ -9,7 +9,7 @@ export class CompletedStatusPipe implements PipeTransform {
   transform(tasks: Task[], isComplete: boolean): Task[] {
     var toReturn: Task[] = [];
     tasks.forEach(task => {
-      if (task.isCompleted == isComplete){
+      if ( (task.isCompleted == null && !isComplete) || (task.isCompleted == isComplete)){
         toReturn.push(task);
       }
     });

@@ -3,7 +3,16 @@
     <h2 class="mat-title">
       {{ task.name | uppercase }}
     </h2>
-    <h4 class="mat-subheading-1">{{ task.dueDate | date: 'mediumDate'}} </h4>
+    <div class="sub-titles">
+      <h4 class="mat-subheading-1">{{ task.dueDate | date: 'mediumDate'}}</h4>
+      <h4 *ngIf="task.isCompleted != null && task.isCompleted; else notComplete" class="mat-subheading-1 complete-status">Completed</h4>
+      <ng-template #notComplete>
+        <h4 class="mat-subheading-1 complete-status">
+          Not Completed
+        </h4>
+      </ng-template>
+    </div>
+    
   </div>
 
   <div mat-dialog-content class="mat-body">
