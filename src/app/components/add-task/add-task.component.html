@@ -1,33 +1,42 @@
 <div class="container">
   <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
-    
-    <p>
+    <h2 class="mat-title" >Add A Task</h2>
+
+    <div>
       <mat-form-field appearance="standard">
         <mat-label for="task-name">Name</mat-label>
         <input matInput type="text" id="task-name" formControlName="name">
       </mat-form-field>
-    </p>
+    </div>
     
-    <p>
+    <div>
       <mat-form-field appearance="standard">
         <mat-label for="task-description">Description</mat-label>
         <textarea matInput type="text" id="task-description" formControlName="description"></textarea>
       </mat-form-field>
-    </p>
+    </div>
     
-    <p>
+    <div>
       <mat-form-field appearance="standard">
         <mat-label for="task-dueDate">Due Date</mat-label>
         <input matInput [matDatepicker]="picker1" id="task-dueDate" formControlName="dueDate">
         <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
         <mat-datepicker #picker1></mat-datepicker>
       </mat-form-field>
-    </p>
+    </div>
     
-    <p>
-      <mat-checkbox id="task-isCompleted" formControlName="isCompleted">Completed?</mat-checkbox>
-    </p>
+    <div class="bottom" >
+      <div>
+        <mat-checkbox id="task-isCompleted" formControlName="isCompleted">Completed?</mat-checkbox>
+      </div>
+      <div></div>
+      <div>
+        <button mat-stroked-button (click)="goBack()" type="button" >Go Back</button>
+      </div>
+      <div>
+        <button mat-flat-button color="accent" type="submit">Submit</button>
+      </div>
+    </div>
   
-    <button mat-flat-button color="accent" type="submit">Submit</button>
   </form>
 </div>

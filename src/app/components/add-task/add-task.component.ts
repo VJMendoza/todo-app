@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Location } from '@angular/common';
 
 import { Task } from 'src/app/models/task';
 import { TaskService } from 'src/app/services/task.service';
@@ -10,13 +11,12 @@ import { TaskService } from 'src/app/services/task.service';
   styleUrls: ['./add-task.component.sass']
 })
 export class AddTaskComponent implements OnInit {
-  task: Task = this.createTask();
-
   taskForm: FormGroup;
 
   constructor(
     protected taskService: TaskService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private location: Location
   ) { 
     this.taskForm = fb.group({
       name: new FormControl(),
@@ -29,17 +29,17 @@ export class AddTaskComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  async onSubmit(): Promise<void> {
+  onSubmit(): void  {
     if (this.taskForm.valid){
       console.log(this.taskForm.value);
+
+      this.taskService.addTask(this.taskForm.value)
+        .subscribe(() => this.goBack());
     }
   }
 
-  private createTask(): Task {
-    return {
-      name: '',
-      description: ''
-    }
+  goBack(): void {
+    this.location.back();
   }
 
 }
