@@ -1,11 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { MatDialog } from '@angular/material/dialog';
 
 import { Task } from '../../models/task';
 
 import { TaskDetailComponent } from '../task-detail/task-detail.component';
-import { TaskService } from 'src/app/services/task.service';
 
 @Component({
   selector: 'app-task-list',
@@ -18,6 +17,9 @@ export class TaskListComponent implements OnInit {
 
   @Input()
   titleToDisplay: string = '';
+
+  @Output()
+  didDelete = new EventEmitter<boolean>();
 
   constructor(
     public dialog: MatDialog,
@@ -35,7 +37,11 @@ export class TaskListComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Task ${taskId} was opened`);
+      if ( result && result.event === 'delete'){
+        this.didDelete.emit(true);
+      } else {
+        this.didDelete.emit(false);
+      }
     })
   }
 }

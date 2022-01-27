@@ -31,4 +31,10 @@ export class TasksComponent implements OnInit {
       });
   }
 
+  refresh(isRefresh: boolean): void{
+    if (isRefresh == true){
+      this.ngOnInit();
+    }
+  }
+
 }

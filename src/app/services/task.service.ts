@@ -40,6 +40,15 @@ export class TaskService {
       );
   }
 
+  deleteTask(id: number): Observable<Task> {
+    return this.httpClient.delete<Task>(
+      `${this.url}/${id}`
+    ).pipe(
+      tap(_ => console.log(`Deleted Task with id: ${id}`)),
+      catchError(this.handleError<Task>())
+    );
+  }
+
   private handleError<T>(result?: T){
     return (error: any): Observable<T> => {
       console.log(error);

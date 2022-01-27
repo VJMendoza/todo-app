@@ -21,7 +21,8 @@
 
   <div class="spacer"></div>
   <div mat-dialog-actions align="end">
+    <button mat-flat-button (click)="deleteTask()" color="warn">Delete</button>
     <button mat-flat-button color="accent">Edit</button>
-    <button mat-button mat-dialog-close cdkFocusInitial>Close</button>
+    <button mat-button (click)="closeTask()" cdkFocusInitial>Close</button>
   </div>
 </div>

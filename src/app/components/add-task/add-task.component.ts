@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Location } from '@angular/common';
 
-import { Task } from 'src/app/models/task';
 import { TaskService } from 'src/app/services/task.service';
 
 @Component({
@@ -14,7 +13,7 @@ export class AddTaskComponent implements OnInit {
   taskForm: FormGroup;
 
   constructor(
-    protected taskService: TaskService,
+    protected tasksService: TaskService,
     private fb: FormBuilder,
     private location: Location
   ) { 
@@ -33,7 +32,7 @@ export class AddTaskComponent implements OnInit {
     if (this.taskForm.valid){
       console.log(this.taskForm.value);
 
-      this.taskService.addTask(this.taskForm.value)
+      this.tasksService.addTask(this.taskForm.value)
         .subscribe(() => this.goBack());
     }
   }

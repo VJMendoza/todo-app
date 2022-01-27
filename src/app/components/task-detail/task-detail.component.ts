@@ -1,7 +1,7 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { TaskService } from 'src/app/services/task.service';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
+import { TaskService } from 'src/app/services/task.service';
 import { Task } from '../../models/task';
 
 @Component({
@@ -14,7 +14,8 @@ export class TaskDetailComponent implements OnInit {
   
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: number,
-    protected tasksService: TaskService
+    private dialogRef: MatDialogRef<TaskDetailComponent>,
+    protected tasksService: TaskService,
   ) { }
 
   ngOnInit(): void {
@@ -24,6 +25,17 @@ export class TaskDetailComponent implements OnInit {
           this.task = task
         });
     }
+  }
+
+  deleteTask(): void {
+    if (this.data){ 
+      this.tasksService.deleteTask(this.data)
+        .subscribe(() => this.dialogRef.close({event: 'delete'}));
+    }
+  }
+
+  closeTask(): void {
+    this.dialogRef.close({event: 'close'})
   }
 
 }
