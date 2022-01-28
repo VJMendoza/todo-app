@@ -22,7 +22,7 @@
   <div class="spacer"></div>
   <div mat-dialog-actions align="end">
     <button mat-flat-button (click)="deleteTask()" color="warn">Delete</button>
-    <button mat-flat-button color="accent">Edit</button>
+    <a mat-flat-button [routerLink]="['/tasks/update/'+task.id]" mat-dialog-close color="accent">Edit</a>
     <button mat-button (click)="closeTask()" cdkFocusInitial>Close</button>
   </div>
 </div>
