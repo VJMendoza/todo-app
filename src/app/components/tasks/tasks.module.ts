@@ -13,9 +13,11 @@ import { TasksComponent } from './tasks.component';
 import { TaskDetailModule } from '../task-detail/task-detail.module';
 import { TaskListModule } from '../task-list/task-list.module';
 import { AddTaskModule } from '../add-task/add-task.module';
+import { UpdateTaskModule } from '../update-task/update-task.module';
 import { PipesModule } from 'src/app/pipes/pipes.module';
 import { DirectivesModule } from 'src/app/directives/directives.module';
 import { TaskRoutingModule } from './task-routing.module';
+import { UpdateTaskComponent } from '../update-task/update-task.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { TaskRoutingModule } from './task-routing.module';
     TaskDetailModule,
     TaskListModule,
     AddTaskModule,
+    UpdateTaskModule,
     PipesModule,
     DirectivesModule,
     TaskRoutingModule,

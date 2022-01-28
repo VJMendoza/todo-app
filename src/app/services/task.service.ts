@@ -49,6 +49,14 @@ export class TaskService {
     );
   }
 
+  updateTask(task: Task): Observable<any> {
+    return this.httpClient.put(this.url, task)
+      .pipe(
+        tap(_ => console.log(`Updated a task`)),
+        catchError(this.handleError<any>())
+      );
+  }
+
   private handleError<T>(result?: T){
     return (error: any): Observable<T> => {
       console.log(error);
