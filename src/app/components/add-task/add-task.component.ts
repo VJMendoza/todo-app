@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
 
 import { TaskService } from 'src/app/services/task.service';
@@ -18,8 +18,8 @@ export class AddTaskComponent implements OnInit {
     private location: Location
   ) { 
     this.taskForm = fb.group({
-      name: new FormControl(),
-      description: new FormControl(),
+      name: new FormControl(null, [Validators.required]),
+      description: new FormControl(null, [Validators.required]),
       dueDate: new FormControl(new Date()),
       isCompleted: false,
     });

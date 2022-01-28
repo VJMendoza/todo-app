@@ -50,7 +50,8 @@ export class TaskService {
   }
 
   updateTask(task: Task): Observable<any> {
-    return this.httpClient.put(this.url, task)
+    return this.httpClient.put(
+      `${this.url}/${task.id}`, task)
       .pipe(
         tap(_ => console.log(`Updated a task`)),
         catchError(this.handleError<any>())
