@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -15,9 +15,9 @@ export class UpdateTaskComponent implements OnInit {
   task?: Task;
 
   taskForm = new FormGroup({
-    name: new FormControl(null, [Validators.required]),
-    description: new FormControl(null, [Validators.required]),
-    dueDate: new FormControl(null),
+    name: new FormControl(null, [Validators.required, Validators.maxLength(32)]),
+    description: new FormControl(null, [Validators.required, Validators.maxLength(255)]),
+    dueDate: new FormControl(null, [this.dateValidator()]),
     isCompleted: new FormControl(null)
   });
 
@@ -71,6 +71,20 @@ export class UpdateTaskComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  dateValidator(): ValidatorFn {
+    return (control: AbstractControl): {[key: string]: any } | null => {
+      const today = new Date().getDate();
+
+      if (!(control && control.value)){
+        return null;
+      }
+
+      return control.value.getDate() < today
+        ? {invalidDate: 'Cannot use past date'}
+        : null
+    }
   }
 
 }

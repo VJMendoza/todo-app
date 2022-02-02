@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
 
 import { TaskService } from 'src/app/services/task.service';
@@ -18,9 +18,9 @@ export class AddTaskComponent implements OnInit {
     private location: Location
   ) { 
     this.taskForm = fb.group({
-      name: new FormControl(null, [Validators.required]),
-      description: new FormControl(null, [Validators.required]),
-      dueDate: new FormControl(new Date()),
+      name: new FormControl(null, [Validators.required, Validators.maxLength(32)]),
+      description: new FormControl(null, [Validators.required,  Validators.maxLength(255)]),
+      dueDate: new FormControl(new Date(), [this.dateValidator()]),
       isCompleted: false,
     });
   }
@@ -39,6 +39,20 @@ export class AddTaskComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  dateValidator(): ValidatorFn {
+    return (control: AbstractControl): {[key: string]: any } | null => {
+      const today = new Date().getDate();
+
+      if (!(control && control.value)){
+        return null;
+      }
+
+      return control.value.getDate() < today
+        ? {invalidDate: 'Cannot use past date'}
+        : null
+    }
   }
 
 }
