@@ -4,7 +4,7 @@
     <mat-card *ngIf="task.id" appElevate (click)="viewTask(task.id)">
       <mat-card-title-group>
         <mat-card-title>{{ task.name }}</mat-card-title>
-        <mat-card-subtitle>Due: {{ task.dueDate | date: 'mediumDate' }} </mat-card-subtitle>
+        <mat-card-subtitle>Due: {{ task.dueDate ? (task.dueDate | date: 'mediumDate') : 'Not set' }} </mat-card-subtitle>
       </mat-card-title-group>
       <mat-card-content>
         {{ task.description }}
